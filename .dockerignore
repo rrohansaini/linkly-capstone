@@ -1,0 +1,13 @@
+.git
+.gitignore
+**/__pycache__
+**/*.pyc
+.venv
+logs
+reports
+secrets
+backups
+docs
+scripts
+proxy/certs
+*.md
