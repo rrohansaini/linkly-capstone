@@ -1,0 +1,9 @@
+# CapDrop ALL, ReadonlyRootfs, memory and CPU limits on every container
+# date: 2026-11-10T14:54:26Z
+$ for c in proxy api worker cache db; do docker inspect -f '{{.Name}} CapDrop={{.HostConfig.CapDrop}} CapAdd={{.HostConfig.CapAdd}} ReadonlyRootfs={{.HostConfig.ReadonlyRootfs}} Memory={{.HostConfig.Memory}} NanoCpus={{.HostConfig.NanoCpus}} SecurityOpt={{.HostConfig.SecurityOpt}} Privileged={{.HostConfig.Privileged}} NetworkMode={{.HostConfig.NetworkMode}}' $c; done
+/proxy CapDrop=[ALL] CapAdd=<no value> ReadonlyRootfs=true Memory=67108864 NanoCpus=500000000 SecurityOpt=[no-new-privileges:true] Privileged=false NetworkMode=dmz
+/api CapDrop=[ALL] CapAdd=<no value> ReadonlyRootfs=true Memory=268435456 NanoCpus=500000000 SecurityOpt=[no-new-privileges:true] Privileged=false NetworkMode=dmz
+/worker CapDrop=[ALL] CapAdd=<no value> ReadonlyRootfs=true Memory=134217728 NanoCpus=500000000 SecurityOpt=[no-new-privileges:true] Privileged=false NetworkMode=internal
+/cache CapDrop=[ALL] CapAdd=<no value> ReadonlyRootfs=true Memory=134217728 NanoCpus=500000000 SecurityOpt=[no-new-privileges:true] Privileged=false NetworkMode=internal
+/db CapDrop=[ALL] CapAdd=[CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETGID CAP_SETUID] ReadonlyRootfs=true Memory=536870912 NanoCpus=1000000000 SecurityOpt=[no-new-privileges:true] Privileged=false NetworkMode=internal
+# exit code: 0

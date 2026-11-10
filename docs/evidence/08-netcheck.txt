@@ -1,0 +1,38 @@
+# Reachability matrix
+# date: 2026-11-10T14:54:26Z
+$ ./scripts/netcheck.sh
+Reachability test (expected vs actual)
+FROM     TO         EXPECTED  ACTUAL                   RESULT
+proxy    api        Allowed   Allowed                  PASS
+proxy    db         Blocked   Blocked (no-DNS)         PASS
+proxy    cache      Blocked   Blocked (no-DNS)         PASS
+proxy    internet   Allowed   Allowed                  PASS
+api      db         Allowed   Allowed                  PASS
+api      cache      Allowed   Allowed                  PASS
+api      internet   Allowed   Allowed                  PASS
+worker   api        Allowed   Allowed                  PASS
+worker   db         Allowed   Allowed                  PASS
+worker   cache      Allowed   Allowed                  PASS
+worker   internet   Blocked   Blocked (timeout)        PASS
+cache    api        Allowed   Allowed                  PASS
+cache    db         Allowed   Allowed                  PASS
+cache    internet   Blocked   Blocked (timeout)        PASS
+db       api        Allowed   Allowed                  PASS
+db       cache      Allowed   Allowed                  PASS
+db       internet   Blocked   Blocked (timeout)        PASS
+backup   api        Blocked   Blocked (no-DNS)         PASS
+backup   db         Allowed   Allowed                  PASS
+backup   cache      Blocked   Blocked (no-DNS)         PASS
+backup   internet   Blocked   Blocked (timeout)        PASS
+
+| From \ To | api :5000 | db :5432 | cache :6379 | Internet (1.1.1.1:443) |
+| --- | --- | --- | --- | --- |
+| proxy | Allowed | Blocked (no-DNS) | Blocked (no-DNS) | Allowed |
+| api | — | Allowed | Allowed | Allowed |
+| worker | Allowed | Allowed | Allowed | Blocked (timeout) |
+| cache | Allowed | Allowed | — | Blocked (timeout) |
+| db | Allowed | — | Allowed | Blocked (timeout) |
+| backup job | Blocked (no-DNS) | Allowed | Blocked (no-DNS) | Blocked (timeout) |
+
+ALL CELLS MATCH: netcheck OK
+# exit code: 0

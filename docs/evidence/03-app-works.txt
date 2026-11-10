@@ -1,0 +1,7 @@
+# Create a link, follow it, stats count the click
+# date: 2026-11-10T14:54:20Z
+$ code=$(curl -sk -X POST https://localhost/links -H "Content-Type: application/json" -d "{\"url\":\"https://example.com\"}" | python3 -c "import sys,json;print(json.load(sys.stdin)[\"code\"])"); echo "code=$code"; curl -sk -o /dev/null -w "follow -> HTTP %{http_code}\n" https://localhost/$code; sleep 5; curl -sk https://localhost/stats/$code
+code=4A4dtN
+follow -> HTTP 302
+{"clicks":1,"code":"4A4dtN"}
+# exit code: 0

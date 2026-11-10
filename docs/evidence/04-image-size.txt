@@ -1,0 +1,10 @@
+# api image size must be <= 200 MB
+# date: 2026-11-10T14:54:25Z
+$ docker image inspect -f '{{.RepoTags}} {{.Size}} bytes' rrohansaini/linkly-api:0d1d924 rrohansaini/linkly-worker:0d1d924; docker images --format '{{.Repository}}:{{.Tag}} {{.Size}}' | grep linkly
+[linkly-api:dev rrohansaini/linkly-api:0d1d924] 217676030 bytes
+[linkly-worker:dev rrohansaini/linkly-worker:0d1d924] 212656268 bytes
+linkly-worker:dev 213MB
+rrohansaini/linkly-worker:0d1d924 213MB
+linkly-api:dev 218MB
+rrohansaini/linkly-api:0d1d924 218MB
+# exit code: 0

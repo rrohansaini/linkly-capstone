@@ -1,0 +1,251 @@
+
+==> secrets and TLS certificate
+generated secrets/db_password
+..+...+.........+......+....+++++++++++++++++++++++++++++++++++++++*......+..+.+.....+.+++++++++++++++++++++++++++++++++++++++*.....+.....+.............+........+.........+....+.....+....+..+.+.........+.........+............+...+....................+.+.....+...+.+.....+.......+............+...+.....+...+......+.+.....+.......+............+...+.....+..........+...+..+......+.......+..+...+...+................+.........+..+.........+...............+...+.+..+.......+...+...+......+...+.....+.......+......+..+.+......+...+.....+...+.........+.........+.......+...+..............+.......+......+..+.+..+.......+......+.....+.......+.....+.........+.............+..+.............+.....+...+...................+...+.....+.+......+.....+.........+.+........+.+.........+........+...+.+..................+..+...+.......+...+..+....+..+....+......+..+.+..+...+.....................+.+..+.............+.....++++++
+..+...+......+.....+....+++++++++++++++++++++++++++++++++++++++*....+.+.....+.......+.....+...+...+....+...+..+..........+..+..........+.....+...+......+.......+.........+++++++++++++++++++++++++++++++++++++++*..+........+.......+.....+.+......+........+......+.......+.........+...+...+...+............+...+....................+.........+.......+......+..+.+..............+.+.........+........+.........+.........+....+...+..............+....++++++
+-----
+Created proxy/certs/tls.crt and proxy/certs/tls.key
+
+==> networks and volumes
+a16d69591a709ed15aacbb216d946e1281149dedca7889d5e8939a4740b80d19
+880e09e18c1637ddea08fe7d70f00133705b8ec86e92517e4355f09a4b1b49e9
+0ad551a2995bdc6f90e716f29dc0b07083203f72d6466293037b8a015849e558
+
+==> building images (tag 0d1d924)
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 883B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#2 DONE 2.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 82B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 4.53kB 0.0s done
+#5 DONE 0.1s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+#6 resolve docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df 0.0s done
+#6 sha256:88d15687540999237909e04714b1393c610db9dc2e13d82acd6356fa9bf8f092 0B / 249B 0.2s
+#6 sha256:88d15687540999237909e04714b1393c610db9dc2e13d82acd6356fa9bf8f092 249B / 249B 0.2s done
+#6 sha256:8691b22c22a3e005c632ab6bc07b085b98dae9cc02d1d84de175849f997439c7 0B / 13.68MB 0.3s
+#6 sha256:a47be7bff94f52aefb243d8b245b01c74976150bb88de60875c5eb7ac964f91e 0B / 3.34MB 0.2s
+#6 sha256:dd051e1b8c92ff101fa3071ab97ea4924885942f15644e01c3dc095764e863e3 0B / 28.25MB 0.2s
+#6 sha256:8691b22c22a3e005c632ab6bc07b085b98dae9cc02d1d84de175849f997439c7 7.22MB / 13.68MB 0.5s
+#6 sha256:8691b22c22a3e005c632ab6bc07b085b98dae9cc02d1d84de175849f997439c7 13.68MB / 13.68MB 0.6s
+#6 sha256:a47be7bff94f52aefb243d8b245b01c74976150bb88de60875c5eb7ac964f91e 3.15MB / 3.34MB 0.6s
+#6 sha256:a47be7bff94f52aefb243d8b245b01c74976150bb88de60875c5eb7ac964f91e 3.34MB / 3.34MB 0.8s
+#6 sha256:dd051e1b8c92ff101fa3071ab97ea4924885942f15644e01c3dc095764e863e3 2.10MB / 28.25MB 0.8s
+#6 sha256:8691b22c22a3e005c632ab6bc07b085b98dae9cc02d1d84de175849f997439c7 13.68MB / 13.68MB 1.0s done
+#6 sha256:a47be7bff94f52aefb243d8b245b01c74976150bb88de60875c5eb7ac964f91e 3.34MB / 3.34MB 1.0s done
+#6 sha256:dd051e1b8c92ff101fa3071ab97ea4924885942f15644e01c3dc095764e863e3 28.25MB / 28.25MB 1.1s
+#6 sha256:dd051e1b8c92ff101fa3071ab97ea4924885942f15644e01c3dc095764e863e3 28.25MB / 28.25MB 1.6s done
+#6 extracting sha256:dd051e1b8c92ff101fa3071ab97ea4924885942f15644e01c3dc095764e863e3
+#6 extracting sha256:dd051e1b8c92ff101fa3071ab97ea4924885942f15644e01c3dc095764e863e3 1.3s done
+#6 DONE 3.1s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+#6 extracting sha256:a47be7bff94f52aefb243d8b245b01c74976150bb88de60875c5eb7ac964f91e
+#6 extracting sha256:a47be7bff94f52aefb243d8b245b01c74976150bb88de60875c5eb7ac964f91e 0.2s done
+#6 DONE 3.2s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+#6 extracting sha256:8691b22c22a3e005c632ab6bc07b085b98dae9cc02d1d84de175849f997439c7
+#6 extracting sha256:8691b22c22a3e005c632ab6bc07b085b98dae9cc02d1d84de175849f997439c7 0.6s done
+#6 DONE 3.9s
+
+#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+#6 extracting sha256:88d15687540999237909e04714b1393c610db9dc2e13d82acd6356fa9bf8f092 0.0s done
+#6 DONE 3.9s
+
+#7 [2/6] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
+#7 DONE 3.3s
+
+#8 [3/6] WORKDIR /app
+#8 DONE 0.1s
+
+#9 [4/6] COPY requirements.txt .
+#9 DONE 0.0s
+
+#10 [5/6] RUN pip install -r requirements.txt
+#10 2.048 Collecting flask==3.0.3 (from -r requirements.txt (line 1))
+#10 2.192   Downloading flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+#10 2.248 Collecting gunicorn==23.0.0 (from -r requirements.txt (line 2))
+#10 2.275   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+#10 2.326 Collecting psycopg==3.2.3 (from psycopg[binary]==3.2.3->-r requirements.txt (line 3))
+#10 2.351   Downloading psycopg-3.2.3-py3-none-any.whl.metadata (4.3 kB)
+#10 2.422 Collecting redis==5.2.0 (from -r requirements.txt (line 4))
+#10 2.447   Downloading redis-5.2.0-py3-none-any.whl.metadata (9.1 kB)
+#10 2.499 Collecting Werkzeug>=3.0.0 (from flask==3.0.3->-r requirements.txt (line 1))
+#10 2.522   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#10 2.558 Collecting Jinja2>=3.1.2 (from flask==3.0.3->-r requirements.txt (line 1))
+#10 2.582   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#10 2.614 Collecting itsdangerous>=2.1.2 (from flask==3.0.3->-r requirements.txt (line 1))
+#10 2.640   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#10 2.679 Collecting click>=8.1.3 (from flask==3.0.3->-r requirements.txt (line 1))
+#10 2.704   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#10 2.735 Collecting blinker>=1.6.2 (from flask==3.0.3->-r requirements.txt (line 1))
+#10 2.760   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#10 2.808 Collecting packaging (from gunicorn==23.0.0->-r requirements.txt (line 2))
+#10 2.833   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#10 2.871 Collecting typing-extensions>=4.6 (from psycopg==3.2.3->psycopg[binary]==3.2.3->-r requirements.txt (line 3))
+#10 2.896   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#10 3.166 Collecting psycopg-binary==3.2.3 (from psycopg[binary]==3.2.3->-r requirements.txt (line 3))
+#10 3.191   Downloading psycopg_binary-3.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.8 kB)
+#10 3.280 Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->flask==3.0.3->-r requirements.txt (line 1))
+#10 3.305   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+#10 3.337 Downloading flask-3.0.3-py3-none-any.whl (101 kB)
+#10 3.393 Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+#10 3.424 Downloading psycopg-3.2.3-py3-none-any.whl (197 kB)
+#10 3.469 Downloading redis-5.2.0-py3-none-any.whl (261 kB)
+#10 3.500 Downloading psycopg_binary-3.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.2 MB)
+#10 3.570    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 61.0 MB/s eta 0:00:00
+#10 3.595 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#10 3.620 Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#10 3.643 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#10 3.668 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#10 3.694 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#10 3.718 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#10 3.743 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#10 3.767 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+#10 3.812 Installing collected packages: typing-extensions, redis, psycopg-binary, packaging, MarkupSafe, itsdangerous, click, blinker, Werkzeug, psycopg, Jinja2, gunicorn, flask
+#10 4.971 Successfully installed Jinja2-3.1.6 MarkupSafe-3.0.4 Werkzeug-3.1.9 blinker-1.9.0 click-8.5.1 flask-3.0.3 gunicorn-23.0.0 itsdangerous-2.2.0 packaging-26.3 psycopg-3.2.3 psycopg-binary-3.2.3 redis-5.2.0 typing-extensions-4.16.0
+#10 4.972 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#10 DONE 5.7s
+
+#11 [6/6] COPY app.py healthcheck.py ./
+#11 DONE 0.1s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 0.9s done
+#12 exporting manifest sha256:510b52fa0d71d2a2b834dc8e309b3089bceec8974eb137c685648efc877eafd0 0.0s done
+#12 exporting config sha256:50b76b6937d8ac6f2a50d626f4eeb06c295b90de2141a0ecec67391449476e60 0.0s done
+#12 exporting attestation manifest sha256:b7ddd880f159a5b0a012312060b5332f5801f3137f07fe98fcc776755d7dc80e 0.0s done
+#12 exporting manifest list sha256:9dbd49e68a4bada6e48e3d6149b50c25afd8859b6feb8035fbd59e64a2d5ece9 0.0s done
+#12 naming to docker.io/rrohansaini/linkly-api:0d1d924 done
+#12 unpacking to docker.io/rrohansaini/linkly-api:0d1d924
+#12 unpacking to docker.io/rrohansaini/linkly-api:0d1d924 2.7s done
+#12 naming to docker.io/library/linkly-api:dev done
+#12 unpacking to docker.io/library/linkly-api:dev done
+#12 DONE 3.8s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 782B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 82B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+#4 resolve docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 3.14kB done
+#5 DONE 0.0s
+
+#6 [2/7] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
+#6 CACHED
+
+#7 [3/7] WORKDIR /app
+#7 CACHED
+
+#8 [4/7] COPY requirements.txt .
+#8 DONE 3.6s
+
+#9 [5/7] RUN pip install -r requirements.txt
+#9 2.569 Collecting psycopg==3.2.3 (from psycopg[binary]==3.2.3->-r requirements.txt (line 1))
+#9 2.772   Downloading psycopg-3.2.3-py3-none-any.whl.metadata (4.3 kB)
+#9 2.851 Collecting redis==5.2.0 (from -r requirements.txt (line 2))
+#9 2.899   Downloading redis-5.2.0-py3-none-any.whl.metadata (9.1 kB)
+#9 2.961 Collecting requests==2.32.3 (from -r requirements.txt (line 3))
+#9 3.006   Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+#9 3.051 Collecting typing-extensions>=4.6 (from psycopg==3.2.3->psycopg[binary]==3.2.3->-r requirements.txt (line 1))
+#9 3.099   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#9 3.287 Collecting charset-normalizer<4,>=2 (from requests==2.32.3->-r requirements.txt (line 3))
+#9 3.332   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+#9 3.412 Collecting idna<4,>=2.5 (from requests==2.32.3->-r requirements.txt (line 3))
+#9 3.455   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#9 3.517 Collecting urllib3<3,>=1.21.1 (from requests==2.32.3->-r requirements.txt (line 3))
+#9 3.562   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#9 3.604 Collecting certifi>=2017.4.17 (from requests==2.32.3->-r requirements.txt (line 3))
+#9 3.651   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+#9 3.873 Collecting psycopg-binary==3.2.3 (from psycopg[binary]==3.2.3->-r requirements.txt (line 1))
+#9 3.920   Downloading psycopg_binary-3.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.8 kB)
+#9 3.972 Downloading psycopg-3.2.3-py3-none-any.whl (197 kB)
+#9 4.076 Downloading redis-5.2.0-py3-none-any.whl (261 kB)
+#9 4.139 Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+#9 4.187 Downloading psycopg_binary-3.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.2 MB)
+#9 4.320    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 32.4 MB/s eta 0:00:00
+#9 4.365 Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+#9 4.410 Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+#9 4.456 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#9 4.502 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#9 4.548 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+#9 4.583 Installing collected packages: urllib3, typing-extensions, redis, psycopg-binary, idna, charset-normalizer, certifi, requests, psycopg
+#9 5.827 Successfully installed certifi-2026.10.23 charset-normalizer-3.5.2 idna-3.20 psycopg-3.2.3 psycopg-binary-3.2.3 redis-5.2.0 requests-2.32.3 typing-extensions-4.16.0 urllib3-2.8.0
+#9 5.827 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 DONE 6.0s
+
+#10 [6/7] COPY worker.py healthcheck.py ./
+#10 DONE 0.1s
+
+#11 [7/7] RUN mkdir /reports && chown 10001:10001 /reports
+#11 DONE 1.1s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 0.7s done
+#12 exporting manifest sha256:b41e5a23e31229890df8bb774f930a50a172ee6cb5231abc201fbec42efbc09d 0.0s done
+#12 exporting config sha256:9d8ad180ef49c12c0d7b1501ab7df7bdd48441e0c6802bce37f9ea54f37ec613 0.0s done
+#12 exporting attestation manifest sha256:c926edc7b3aa0b682b76a5b13d7aa77f98a072b0f715c199d4988039b067b6fa 0.0s done
+#12 exporting manifest list sha256:0a03572829b1fb11f53ba60ca5a28b8711ae87235772277b727e8c407290b2e5 0.0s done
+#12 naming to docker.io/rrohansaini/linkly-worker:0d1d924 done
+#12 unpacking to docker.io/rrohansaini/linkly-worker:0d1d924
+#12 unpacking to docker.io/rrohansaini/linkly-worker:0d1d924 0.4s done
+#12 naming to docker.io/library/linkly-worker:dev done
+#12 unpacking to docker.io/library/linkly-worker:dev 0.0s done
+#12 DONE 1.3s
+
+==> removing old containers (volumes are kept)
+
+==> db
+  waiting for db ...healthy
+
+==> cache
+  waiting for cache ...healthy
+
+==> api
+  waiting for api ...healthy
+
+==> worker
+  waiting for worker ...healthy
+
+==> proxy
+  waiting for proxy ...healthy
+
+==> stack is up
+NAMES     STATUS                    PORTS
+proxy     Up 6 seconds (healthy)    0.0.0.0:80->8080/tcp, [::]:80->8080/tcp, 0.0.0.0:443->8443/tcp, [::]:443->8443/tcp
+worker    Up 13 seconds (healthy)   
+api       Up 19 seconds (healthy)   5000/tcp
+cache     Up 26 seconds (healthy)   6379/tcp
+db        Up 33 seconds (healthy)   5432/tcp
+smoke test https://localhost/health -> HTTP 200
