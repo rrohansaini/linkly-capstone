@@ -1,5 +1,5 @@
 # CapDrop ALL, ReadonlyRootfs, memory and CPU limits on every container
-# date: 2026-11-10T15:26:44Z
+# date: 2026-11-10T16:40:03Z
 $ for c in proxy api worker cache db; do docker inspect -f '{{.Name}} CapDrop={{.HostConfig.CapDrop}} CapAdd={{.HostConfig.CapAdd}} ReadonlyRootfs={{.HostConfig.ReadonlyRootfs}} Memory={{.HostConfig.Memory}} NanoCpus={{.HostConfig.NanoCpus}} SecurityOpt={{.HostConfig.SecurityOpt}} Privileged={{.HostConfig.Privileged}} NetworkMode={{.HostConfig.NetworkMode}}' $c; done
 /proxy CapDrop=[ALL] CapAdd=<no value> ReadonlyRootfs=true Memory=67108864 NanoCpus=500000000 SecurityOpt=[no-new-privileges:true] Privileged=false NetworkMode=dmz
 /api CapDrop=[ALL] CapAdd=<no value> ReadonlyRootfs=true Memory=268435456 NanoCpus=500000000 SecurityOpt=[no-new-privileges:true] Privileged=false NetworkMode=dmz

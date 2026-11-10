@@ -1,7 +1,7 @@
 # Only api is on both dmz and internal
-# date: 2026-11-10T15:26:38Z
+# date: 2026-11-10T16:39:58Z
 $ docker network inspect dmz internal admin -f '{{.Name}} internal={{.Internal}} subnet={{range .IPAM.Config}}{{.Subnet}}{{end}} containers:{{range .Containers}} {{.Name}}{{end}}'
-dmz internal=false subnet=172.30.1.0/24 containers: api proxy
-internal internal=true subnet=172.30.2.0/24 containers: cache api db worker
+dmz internal=false subnet=172.30.1.0/24 containers: proxy api
+internal internal=true subnet=172.30.2.0/24 containers: worker cache db api
 admin internal=true subnet=172.30.3.0/24 containers: db
 # exit code: 0
