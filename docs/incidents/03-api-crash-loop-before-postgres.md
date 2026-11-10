@@ -1,7 +1,7 @@
 # 03: api crash-loops when all containers are started at once
 
 ## Symptom
-`docker ps` shows the api as `Restarting`; its logs show connection errors to Postgres.
+The api crashes on startup with `psycopg.OperationalError: ... Connection refused` and is relaunched by the restart policy (`restarts=1` below). With a slower database it keeps crash-looping until Postgres accepts connections.
 
 ## Commands and output
 ```bash
