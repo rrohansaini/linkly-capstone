@@ -12,13 +12,13 @@ flowchart TB
   client([client: browser or curl]) -->|HTTPS 443 / 80 redirect| proxy
   subgraph dmz [dmz: bridge 172.30.1.0/24]
     proxy[proxy: nginx]
-    api
+    api["api: Gunicorn<br/>(dmz + internal)"]
   end
   subgraph internal [internal: --internal 172.30.2.0/24]
     api
     cache[(cache: Redis AOF)]
     worker
-    db[(db: Postgres)]
+    db[("db: Postgres<br/>(internal + admin)")]
   end
   subgraph admin [admin: --internal 172.30.3.0/24]
     db
