@@ -1,8 +1,9 @@
 # Backup is a .sql.gz containing links
-# date: 2026-11-10T14:55:52Z
+# date: 2026-11-10T15:27:08Z
 $ ./scripts/backup.sh && f=$(ls -t backups/*.sql.gz | head -1) && echo "file: $f" && zcat "$f" | grep -m3 -E "^[A-Za-z0-9]{6}\s+https?://" ; zcat "$f" | grep -c "COPY public.links"
-backup written: backups/linkly-20261110-145552.sql.gz (4.0K)
-file: backups/linkly-20261110-145552.sql.gz
+backup written: backups/linkly-20261110-152708.sql.gz (4.0K)
+file: backups/linkly-20261110-152708.sql.gz
 4A4dtN	https://example.com	2026-11-10 14:54:20.30608+00
+3b9uUi	https://example.com	2026-11-10 15:26:39.035451+00
 1
 # exit code: 0

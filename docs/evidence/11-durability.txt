@@ -1,59 +1,61 @@
 # Link count identical after down.sh + up.sh
-# date: 2026-11-10T14:55:53Z
+# date: 2026-11-10T15:27:09Z
 $ q() { docker exec db psql -U linkly -d linkly -tAc "select count(*) from links"; }; echo "before: $(q)"; ./scripts/down.sh >/dev/null; ./scripts/up.sh >/dev/null; echo "after:  $(q)"
-before: 1
+before: 2
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
-#1 transferring dockerfile: 883B done
+#1 transferring dockerfile: 1.65kB done
 #1 DONE 0.0s
 
-#2 [auth] library/python:pull token for registry-1.docker.io
+#2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
 #2 DONE 0.0s
 
-#3 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
-#3 DONE 0.9s
+#3 [internal] load .dockerignore
+#3 transferring context: 82B done
+#3 DONE 0.0s
 
-#4 [internal] load .dockerignore
-#4 transferring context: 82B done
+#4 [internal] load build context
+#4 transferring context: 97B done
 #4 DONE 0.0s
 
-#5 [internal] load build context
-#5 transferring context: 97B done
+#5 [build 1/5] FROM docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+#5 resolve docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df 0.0s done
 #5 DONE 0.0s
 
-#6 [1/6] FROM docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
-#6 resolve docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df 0.1s done
-#6 DONE 0.1s
+#6 [stage-1 2/3] WORKDIR /app
+#6 CACHED
 
-#7 [2/6] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
+#7 [build 3/5] WORKDIR /app
 #7 CACHED
 
-#8 [3/6] WORKDIR /app
+#8 [stage-1 1/3] COPY --from=build / /
 #8 CACHED
 
-#9 [4/6] COPY requirements.txt .
+#9 [build 2/5] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
 #9 CACHED
 
-#10 [5/6] RUN pip install -r requirements.txt
+#10 [build 4/5] COPY requirements.txt .
 #10 CACHED
 
-#11 [6/6] COPY app.py healthcheck.py ./
+#11 [build 5/5] RUN pip install -r requirements.txt  && pip uninstall -y pip setuptools wheel  && rm -rf /usr/local/lib/python3.12/ensurepip            /usr/local/lib/python3.12/idlelib            /usr/local/lib/python3.12/test            /usr/local/lib/python3.12/turtledemo            /usr/local/lib/python3.12/tkinter            /usr/local/bin/idle3* /usr/local/bin/pydoc*  && find /usr /var -name __pycache_ -type d -prune -exec rm -rf {} +  && rm -rf /usr/bin/perl* /usr/lib/x86_64-linux-gnu/perl-base /usr/share/doc /usr/share/man /usr/share/info /usr/share/locale /var/lib/apt/lists/*
 #11 CACHED
 
-#12 exporting to image
-#12 exporting layers
-#12 exporting layers 0.0s done
-#12 exporting manifest sha256:510b52fa0d71d2a2b834dc8e309b3089bceec8974eb137c685648efc877eafd0 done
-#12 exporting config sha256:50b76b6937d8ac6f2a50d626f4eeb06c295b90de2141a0ecec67391449476e60 done
-#12 exporting attestation manifest sha256:8e9cc15deb0d7e45520f25b7d9414febc1820c86550e2263f0456ba26406e2b5 0.0s done
-#12 exporting manifest list sha256:417003cce16edb9cbfefe5984997c603b934ad59a07c8ec0f0e39f1a174c1fc8 0.0s done
-#12 naming to docker.io/rrohansaini/linkly-api:0d1d924
-#12 naming to docker.io/rrohansaini/linkly-api:0d1d924 done
-#12 unpacking to docker.io/rrohansaini/linkly-api:0d1d924 done
-#12 naming to docker.io/library/linkly-api:dev done
-#12 unpacking to docker.io/library/linkly-api:dev done
-#12 DONE 0.2s
+#12 [stage-1 3/3] COPY app.py healthcheck.py ./
+#12 CACHED
+
+#13 exporting to image
+#13 exporting layers done
+#13 exporting manifest sha256:bebfb9f5a2531956f62bd8156dc79f87cbe70c68872b2a0c9fffe580b2bb8295 done
+#13 exporting config sha256:6c74ce084d4c20e8b6bee62e5b8fc672634c52dcddb261cf9af793830760bc86 done
+#13 exporting attestation manifest sha256:a351d3e916c2482842bd59633511bf0a7f1af44f0d5b9fb0d9ef3f428ccd2b35
+#13 exporting attestation manifest sha256:a351d3e916c2482842bd59633511bf0a7f1af44f0d5b9fb0d9ef3f428ccd2b35 0.0s done
+#13 exporting manifest list sha256:ee34a1d07f3b69a7262e58a99a09677545895d3e35b6f4f9052c298caff3c641 0.0s done
+#13 naming to docker.io/rrohansaini/linkly-api:58a8133 done
+#13 unpacking to docker.io/rrohansaini/linkly-api:58a8133 done
+#13 naming to docker.io/library/linkly-api:dev done
+#13 unpacking to docker.io/library/linkly-api:dev done
+#13 DONE 0.1s
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
@@ -61,7 +63,7 @@ before: 1
 #1 DONE 0.0s
 
 #2 [internal] load metadata for docker.io/library/python:3.12-slim-bookworm
-#2 DONE 0.3s
+#2 DONE 0.0s
 
 #3 [internal] load .dockerignore
 #3 transferring context: 82B done
@@ -75,16 +77,16 @@ before: 1
 #5 transferring context: 100B done
 #5 DONE 0.0s
 
-#6 [2/7] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
+#6 [6/7] COPY worker.py healthcheck.py ./
 #6 CACHED
 
-#7 [4/7] COPY requirements.txt .
+#7 [2/7] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
 #7 CACHED
 
-#8 [6/7] COPY worker.py healthcheck.py ./
+#8 [3/7] WORKDIR /app
 #8 CACHED
 
-#9 [3/7] WORKDIR /app
+#9 [4/7] COPY requirements.txt .
 #9 CACHED
 
 #10 [5/7] RUN pip install -r requirements.txt
@@ -97,13 +99,13 @@ before: 1
 #12 exporting layers done
 #12 exporting manifest sha256:b41e5a23e31229890df8bb774f930a50a172ee6cb5231abc201fbec42efbc09d done
 #12 exporting config sha256:9d8ad180ef49c12c0d7b1501ab7df7bdd48441e0c6802bce37f9ea54f37ec613 done
-#12 exporting attestation manifest sha256:35218324c78c6aecfb3599b1f1aa9dd34e3c340c931b29791d1209d1c3ef24f8 0.0s done
-#12 exporting manifest list sha256:58a08b2baf3748837b2f35d89f6d231db62760b3629f85bb855e5d26962e5e80 0.0s done
-#12 naming to docker.io/rrohansaini/linkly-worker:0d1d924
-#12 naming to docker.io/rrohansaini/linkly-worker:0d1d924 done
-#12 unpacking to docker.io/rrohansaini/linkly-worker:0d1d924 done
+#12 exporting attestation manifest sha256:483dbc7f366880e0ea2aa830b62b56f426072ab24b713c32e6adac937e829b16
+#12 exporting attestation manifest sha256:483dbc7f366880e0ea2aa830b62b56f426072ab24b713c32e6adac937e829b16 0.0s done
+#12 exporting manifest list sha256:8fc0351522a2d868252e2b9fdb9bc88ce6bfb2a91d64c7004c87b22c0d347d2a 0.0s done
+#12 naming to docker.io/rrohansaini/linkly-worker:58a8133 done
+#12 unpacking to docker.io/rrohansaini/linkly-worker:58a8133 done
 #12 naming to docker.io/library/linkly-worker:dev done
 #12 unpacking to docker.io/library/linkly-worker:dev done
 #12 DONE 0.1s
-after:  1
+after:  2
 # exit code: 0

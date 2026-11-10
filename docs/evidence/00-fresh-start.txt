@@ -3,7 +3,7 @@
 
 ==> networks and volumes
 
-==> building images (tag bca6249)
+==> building images (tag 58a8133)
 #0 building with "default" instance using docker driver
 
 #1 [internal] load build definition from Dockerfile
@@ -25,22 +25,22 @@
 #5 resolve docker.io/library/python:3.12-slim-bookworm@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df 0.0s done
 #5 DONE 0.0s
 
-#6 [build 2/5] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
+#6 [stage-1 2/3] WORKDIR /app
 #6 CACHED
 
-#7 [build 4/5] COPY requirements.txt .
+#7 [build 3/5] WORKDIR /app
 #7 CACHED
 
 #8 [build 5/5] RUN pip install -r requirements.txt  && pip uninstall -y pip setuptools wheel  && rm -rf /usr/local/lib/python3.12/ensurepip            /usr/local/lib/python3.12/idlelib            /usr/local/lib/python3.12/test            /usr/local/lib/python3.12/turtledemo            /usr/local/lib/python3.12/tkinter            /usr/local/bin/idle3* /usr/local/bin/pydoc*  && find /usr /var -name __pycache_ -type d -prune -exec rm -rf {} +  && rm -rf /usr/bin/perl* /usr/lib/x86_64-linux-gnu/perl-base /usr/share/doc /usr/share/man /usr/share/info /usr/share/locale /var/lib/apt/lists/*
 #8 CACHED
 
-#9 [build 3/5] WORKDIR /app
+#9 [build 2/5] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
 #9 CACHED
 
-#10 [stage-1 1/3] COPY --from=build / /
+#10 [build 4/5] COPY requirements.txt .
 #10 CACHED
 
-#11 [stage-1 2/3] WORKDIR /app
+#11 [stage-1 1/3] COPY --from=build / /
 #11 CACHED
 
 #12 [stage-1 3/3] COPY app.py healthcheck.py ./
@@ -50,11 +50,11 @@
 #13 exporting layers done
 #13 exporting manifest sha256:bebfb9f5a2531956f62bd8156dc79f87cbe70c68872b2a0c9fffe580b2bb8295 done
 #13 exporting config sha256:6c74ce084d4c20e8b6bee62e5b8fc672634c52dcddb261cf9af793830760bc86 done
-#13 exporting attestation manifest sha256:fd136cef53fa62c87404cd70151df73c1da6f1fa35de0437f461a1bdde2f7f9a 0.0s done
-#13 exporting manifest list sha256:9e0fe22b9182dc0d88a7c8f0ec8cd326bee1491d2005f07f7b7070555ce33c9e
-#13 exporting manifest list sha256:9e0fe22b9182dc0d88a7c8f0ec8cd326bee1491d2005f07f7b7070555ce33c9e 0.0s done
-#13 naming to docker.io/rrohansaini/linkly-api:bca6249 done
-#13 unpacking to docker.io/rrohansaini/linkly-api:bca6249 done
+#13 exporting attestation manifest sha256:81c4603fa6067a7882549879f7b2c654546b37c76aade21d8e06f9f541df9706 0.0s done
+#13 exporting manifest list sha256:8ba3423dc37d1f876190718b023f86905bafa594d067c2610e7e55b6a6e474d8
+#13 exporting manifest list sha256:8ba3423dc37d1f876190718b023f86905bafa594d067c2610e7e55b6a6e474d8 0.0s done
+#13 naming to docker.io/rrohansaini/linkly-api:58a8133 done
+#13 unpacking to docker.io/rrohansaini/linkly-api:58a8133 done
 #13 naming to docker.io/library/linkly-api:dev done
 #13 unpacking to docker.io/library/linkly-api:dev done
 #13 DONE 0.1s
@@ -82,16 +82,16 @@
 #6 [2/7] RUN groupadd --gid 10001 app  && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin app
 #6 CACHED
 
-#7 [6/7] COPY worker.py healthcheck.py ./
+#7 [3/7] WORKDIR /app
 #7 CACHED
 
 #8 [4/7] COPY requirements.txt .
 #8 CACHED
 
-#9 [3/7] WORKDIR /app
+#9 [5/7] RUN pip install -r requirements.txt
 #9 CACHED
 
-#10 [5/7] RUN pip install -r requirements.txt
+#10 [6/7] COPY worker.py healthcheck.py ./
 #10 CACHED
 
 #11 [7/7] RUN mkdir /reports && chown 10001:10001 /reports
@@ -101,11 +101,10 @@
 #12 exporting layers done
 #12 exporting manifest sha256:b41e5a23e31229890df8bb774f930a50a172ee6cb5231abc201fbec42efbc09d done
 #12 exporting config sha256:9d8ad180ef49c12c0d7b1501ab7df7bdd48441e0c6802bce37f9ea54f37ec613 done
-#12 exporting attestation manifest sha256:0f06e79cf641e3c6558e82065a4018dd63f08eb1527ace5064ae8960e265ea41
-#12 exporting attestation manifest sha256:0f06e79cf641e3c6558e82065a4018dd63f08eb1527ace5064ae8960e265ea41 0.0s done
-#12 exporting manifest list sha256:b01953e06abe0d6326f2a7740800eaa6c5a723ce5da7a43a713d8a0945ed32c7 0.0s done
-#12 naming to docker.io/rrohansaini/linkly-worker:bca6249 done
-#12 unpacking to docker.io/rrohansaini/linkly-worker:bca6249 done
+#12 exporting attestation manifest sha256:f1812f801c0ede8fbff6bdddad65d9e14abcfe5c0baaef022eab6457d0ae6229 0.0s done
+#12 exporting manifest list sha256:1bb01a411985b5b2fa3accd52428be79a70ce83f190cdaaae0c09a0565226723 0.0s done
+#12 naming to docker.io/rrohansaini/linkly-worker:58a8133 done
+#12 unpacking to docker.io/rrohansaini/linkly-worker:58a8133 done
 #12 naming to docker.io/library/linkly-worker:dev done
 #12 unpacking to docker.io/library/linkly-worker:dev done
 #12 DONE 0.1s
@@ -130,8 +129,8 @@
 ==> stack is up
 NAMES     STATUS                    PORTS
 proxy     Up 6 seconds (healthy)    0.0.0.0:80->8080/tcp, [::]:80->8080/tcp, 0.0.0.0:443->8443/tcp, [::]:443->8443/tcp
-worker    Up 15 seconds (healthy)   
-api       Up 22 seconds (healthy)   5000/tcp
-cache     Up 29 seconds (healthy)   6379/tcp
-db        Up 35 seconds (healthy)   5432/tcp
+worker    Up 13 seconds (healthy)   
+api       Up 19 seconds (healthy)   5000/tcp
+cache     Up 26 seconds (healthy)   6379/tcp
+db        Up 32 seconds (healthy)   5432/tcp
 smoke test https://localhost/health -> HTTP 200

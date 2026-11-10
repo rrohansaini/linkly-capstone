@@ -1,5 +1,5 @@
 # Only the proxy publishes ports
-# date: 2026-11-10T14:54:20Z
+# date: 2026-11-10T15:26:38Z
 $ docker ps --format '{{.Names}} {{.Ports}}'
 proxy 0.0.0.0:80->8080/tcp, [::]:80->8080/tcp, 0.0.0.0:443->8443/tcp, [::]:443->8443/tcp
 worker 

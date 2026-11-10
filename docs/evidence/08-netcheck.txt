@@ -1,5 +1,5 @@
 # Reachability matrix
-# date: 2026-11-10T14:54:26Z
+# date: 2026-11-10T15:26:44Z
 $ ./scripts/netcheck.sh
 Reachability test (expected vs actual)
 FROM     TO         EXPECTED  ACTUAL                   RESULT

@@ -1,10 +1,10 @@
 # api and worker do not run as root
-# date: 2026-11-10T14:54:26Z
+# date: 2026-11-10T15:26:44Z
 $ docker top api -o user,pid,cmd; docker top worker -o user,pid,cmd
 USER                PID                 CMD
-10001               18314               /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:5000 --workers 2 --preload --access-logfile - app:app
-10001               18438               /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:5000 --workers 2 --preload --access-logfile - app:app
-10001               18439               /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:5000 --workers 2 --preload --access-logfile - app:app
+10001               72204               /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:5000 --workers 2 --preload --access-logfile - app:app
+10001               72246               /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:5000 --workers 2 --preload --access-logfile - app:app
+10001               72247               /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:5000 --workers 2 --preload --access-logfile - app:app
 USER                PID                 CMD
-10001               18582               python /app/worker.py
+10001               72459               python /app/worker.py
 # exit code: 0
