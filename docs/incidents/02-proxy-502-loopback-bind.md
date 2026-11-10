@@ -16,9 +16,34 @@ docker network connect internal api && docker start api
 docker restart proxy                 # nginx caches the upstream IP at start
 curl -sk -o /dev/null -w '%{http_code}\n' https://localhost/health
 docker logs --tail 5 api
-docker logs --tail 5 proxy
+docker logs proxy 2>&1 | grep -E 'error|upstream' | tail -3
 ```
-<!-- PASTE THE REAL OUTPUT HERE (502, "Listening at: http://127.0.0.1:8000", "connect() failed (111: Connection refused)") -->
+```text
+$ docker rm -f api
+api
+
+$ docker create --name api --network dmz --read-only --tmpfs /tmp ... linkly-api:dev gunicorn app:app
+009a6fd65c8fb535955f4a22dff1e9322eacc1809602fd7fc5a47d41bf93b1c3
+
+$ docker network connect internal api && docker start api
+api
+
+$ docker restart proxy
+proxy
+
+$ curl -sk -o /dev/null -w '%{http_code}\n' https://localhost/health
+502
+
+$ docker logs --tail 5 api
+[2026-11-10 16:17:52 +0000] [1] [INFO] Starting gunicorn 23.0.0
+[2026-11-10 16:17:52 +0000] [1] [INFO] Listening at: http://127.0.0.1:8000 (1)
+[2026-11-10 16:17:52 +0000] [1] [INFO] Using worker: sync
+[2026-11-10 16:17:52 +0000] [7] [INFO] Booting worker with pid: 7
+
+$ docker logs proxy 2>&1 | grep -E 'error|upstream' | tail -3
+2026/11/10 16:18:00 [error] 22#22: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.30.1.1, server: , request: "GET /health HTTP/1.1", upstream: "http://172.30.1.2:5000/health", host: "localhost"
+
+```
 
 ## Root cause
 `gunicorn app:app` binds to `127.0.0.1:8000` by default. Inside the container, loopback is only
@@ -31,4 +56,14 @@ Bind to all interfaces on the port nginx expects: `gunicorn --bind 0.0.0.0:5000 
 ./scripts/up.sh
 curl -sk -o /dev/null -w '%{http_code}\n' https://localhost/health
 ```
-<!-- PASTE THE REAL OUTPUT (200) -->
+```text
+$ ./scripts/up.sh
+(stack rebuilt, all services healthy)
+
+$ curl -sk -o /dev/null -w '%{http_code}\n' https://localhost/health
+200
+
+$ docker logs api 2>&1 | grep Listening
+[2026-11-10 16:18:21 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+
+```
