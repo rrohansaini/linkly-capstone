@@ -1,23 +1,10 @@
-# api image size must be <= 200 MB
-# date: 2026-11-10T16:40:03Z
-$ docker image inspect -f '{{.RepoTags}} {{.Size}} bytes' rrohansaini/linkly-api:2482eeb rrohansaini/linkly-worker:2482eeb; docker images --format '{{.Repository}}:{{.Tag}} {{.Size}}' | grep linkly
+]633;E;echo "# api image size must be <= 200 MB (images built from commit 2482eeb)";9f14e8f7-9949-4c87-a4c2-5916e186b95c]633;C# api image size must be <= 200 MB (images built from commit 2482eeb)
+# date: 2026-11-10T16:45:37Z
+$ docker image inspect -f '{{.RepoTags}} {{.Size}} bytes' rrohansaini/linkly-api:2482eeb rrohansaini/linkly-worker:2482eeb
 [linkly-api:dev rrohansaini/linkly-api:2482eeb] 193144653 bytes
 [linkly-worker:dev rrohansaini/linkly-worker:2482eeb] 212656268 bytes
-rrohansaini/linkly-api:faeccca 193MB
-rrohansaini/linkly-api:43dcfc1 193MB
-rrohansaini/linkly-api:3f9ac2c 193MB
-linkly-api:test 193MB
+$ docker images --format '{{.Repository}}:{{.Tag}} {{.Size}}' | grep linkly
 linkly-api:dev 193MB
 rrohansaini/linkly-api:2482eeb 193MB
-rrohansaini/linkly-api:bca6249 193MB
-rrohansaini/linkly-api:58a8133 193MB
-rrohansaini/linkly-worker:58a8133 213MB
-rrohansaini/linkly-worker:2482eeb 213MB
 linkly-worker:dev 213MB
-rrohansaini/linkly-worker:0d1d924 213MB
-rrohansaini/linkly-worker:3f9ac2c 213MB
-rrohansaini/linkly-worker:43dcfc1 213MB
-rrohansaini/linkly-worker:faeccca 213MB
-rrohansaini/linkly-worker:bca6249 213MB
-rrohansaini/linkly-api:0d1d924 218MB
-# exit code: 0
+rrohansaini/linkly-worker:2482eeb 213MB

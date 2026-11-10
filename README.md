@@ -90,7 +90,7 @@ Tag = short git SHA of the commit they were built from.
   `0.0.0.0:5000`, `HEALTHCHECK` uses the provided `healthcheck.py`.
 - **worker** (`worker/Dockerfile`): `python:3.12-slim-bookworm`, UID 10001, `/reports` pre-created and owned by
   10001 so a new named volume is writable, `HEALTHCHECK` uses the provided `healthcheck.py`.
-- Both are tagged with the short git SHA; see `docs/evidence/image-digests.txt`.
+- Both are tagged with the short git SHA; see `docs/evidence/image-digests.txt`. The current images were built from commit `2482eeb`; later commits only change evidence files.
 
 ## Security summary
 Every container: `--cap-drop ALL` (db adds only CHOWN, DAC_OVERRIDE, FOWNER, SETUID, SETGID for its
